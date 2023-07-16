@@ -18,6 +18,7 @@
 
 ;; Powerline for prettier/more functional(?) mode line
 (use-package powerline
+  :ensure t
   :init
   (powerline-default-theme))
   
@@ -28,8 +29,19 @@
 
 ;; Use Vertico for completions
 (use-package vertico
+  :ensure t
   :init
   (vertico-mode))
+
+;; Enable richer annotations using the Marginalia package
+(use-package marginalia
+  :ensure t
+  :bind (:map minibuffer-local-map
+         ("M-A" . marginalia-cycle))
+
+  :init
+  (marginalia-mode))
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
