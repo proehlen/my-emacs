@@ -1,3 +1,4 @@
+;; Set up use-package
 (require 'package)
 (add-to-list 'package-archives '("gnu"   . "https://elpa.gnu.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
@@ -10,23 +11,25 @@
   (setq use-package-always-ensure t
         use-package-expand-minimally t))
 
+;; Evil for vim keybindngs
 (use-package evil
     :init
     (evil-mode 1))
 
+;; Powerline for prettier/more functional(?) mode line
 (use-package powerline
   :init
   (powerline-default-theme))
   
-
 ;; Use relative line numbers
 (setq display-line-numbers-type 'relative) 
 ;; activate line numbering in all buffers/modes
 (global-display-line-numbers-mode) 
 
-;;;; Download Vertico
-;;(unless (package-installed-p 'vertico)
-;;  (package-install 'vertico))
+;; Use Vertico for completions
+(use-package vertico
+  :init
+  (vertico-mode))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
